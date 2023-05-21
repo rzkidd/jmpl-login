@@ -18,8 +18,7 @@ export default function App() {
     const [show, setShow] = useState(false);
     const [user, setUser] = useState()
     const [message, setMessage] = useState('')
-    const baseUrl = process.env.BASE_URL
-    // console.log(session)
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL    // console.log(session)
 
     useEffect(() => {
         if (session?.user.name ){

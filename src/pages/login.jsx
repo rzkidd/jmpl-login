@@ -22,8 +22,7 @@ function App() {
   const { executeRecaptcha } = useReCaptcha();
   const { data: session, status, update} = useSession()
   const router = useRouter()
-  const baseUrl = process.env.BASE_URL
-  
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL  
   if (session){
     router.push('/')
   }
