@@ -28,7 +28,7 @@ function App() {
   const [responseStatus, setResponseStatus] = useState('')
   const router = useRouter()
   const baseUrl = process.env.BASE_URL
-  // console.log(router.route)
+  console.log(baseUrl)
 
   const handleSubmit = useCallback(
     async (e) => {
