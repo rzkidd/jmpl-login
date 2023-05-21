@@ -1,0 +1,47 @@
+{
+  "name": "jmpl-login",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --watch --verbose",
+    "test:e2e:open": "cypress open",
+    "test:e2e:run": "cypress run"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@next-auth/prisma-adapter": "^1.0.5",
+    "@prisma/client": "^4.12.0",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.2.3",
+    "check-password-strength": "^2.0.7",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "jest-fetch-mock": "^3.0.3",
+    "mdb-react-ui-kit": "^6.0.0",
+    "next": "13.2.4",
+    "next-auth": "^4.21.1",
+    "next-recaptcha-v3": "^1.1.5",
+    "react": "18.2.0",
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "18.2.0",
+    "react-google-recaptcha-v3": "^1.10.1",
+    "react-router-dom": "^6.10.0"
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^9.0.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/bcrypt": "^5.0.0",
+    "@types/node": "18.15.11",
+    "cypress": "^12.12.0",
+    "cypress-social-logins": "^1.14.1",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "supertest": "^6.3.3"
+  }
+}
