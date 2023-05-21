@@ -18,6 +18,7 @@ export default function App() {
     const [show, setShow] = useState(false);
     const [user, setUser] = useState()
     const [message, setMessage] = useState('')
+    const baseUrl = process.env.BASE_URL
     // console.log(session)
 
     useEffect(() => {
@@ -25,7 +26,7 @@ export default function App() {
             setMessage(`Signed in with Google as ${session?.user.name}`)
             setShow(true)
         } else if (session) {
-            fetch('http://localhost:3000/api/getCurrentUser?email=' + session?.user.email)
+            fetch(baseUrl + '/api/getCurrentUser?email=' + session?.user.email)
             .then(response => response.json())
             .then(response => {
                 // console.log(response)

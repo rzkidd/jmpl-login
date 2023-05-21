@@ -22,6 +22,7 @@ function App() {
   const { executeRecaptcha } = useReCaptcha();
   const { data: session, status, update} = useSession()
   const router = useRouter()
+  const baseUrl = process.env.BASE_URL
   
   if (session){
     router.push('/')
@@ -41,7 +42,7 @@ function App() {
         email: email,
         password: password,
         // token: token,
-        callbackUrl: 'http://localhost:3000',
+        callbackUrl: baseUrl,
         redirect: false
       })
       .then((callback) => {

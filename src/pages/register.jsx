@@ -27,6 +27,7 @@ function App() {
   const [show, setShow] = useState(false);
   const [responseStatus, setResponseStatus] = useState('')
   const router = useRouter()
+  const baseUrl = process.env.BASE_URL
   // console.log(router.route)
 
   const handleSubmit = useCallback(
@@ -41,7 +42,7 @@ function App() {
       // const token = await executeRecaptcha("register");
       // console.log(token)
 
-      fetch('http://localhost:3000/api/register', {
+      fetch(baseUrl + '/api/register', {
         method: "POST",
         headers: new Headers({
           "Content-Type": 'application/json',
