@@ -27,7 +27,7 @@ function App() {
   const [show, setShow] = useState(false);
   const [responseStatus, setResponseStatus] = useState('')
   const router = useRouter()
-  const baseUrl = process.env.BASE_URL
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   console.log(baseUrl)
 
   const handleSubmit = useCallback(
