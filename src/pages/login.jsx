@@ -34,13 +34,13 @@ function App() {
       e.preventDefault();
 
       // Generate ReCaptcha token
-      // const token = await executeRecaptcha("login");
+      const token = await executeRecaptcha("login");
       // console.log(token, email, password)
 
       signIn('credentials', {
         email: email,
         password: password,
-        // token: token,
+        token: token,
         callbackUrl: baseUrl,
         redirect: false
       })
@@ -53,7 +53,7 @@ function App() {
           setShow(true)
           setTimeout(() => {
             router.push('/')
-          }, 3000)
+          }, 1500)
         }
         
         if (callback?.error) {
@@ -122,7 +122,7 @@ function App() {
 
             <div className="d-flex justify-content-between mx-4 mb-4">
               {/* <MDBCheckbox name='flexCheck' value={rememberMe} onChange={e => setRememberMe(e.target.value)} id='flexCheckDefault' label='Remember me' /> */}
-              <a href="!#">Forgot password?</a>
+              {/* <a href="!#">Forgot password?</a> */}
             </div>
 
             <MDBBtn className="mb-4 w-100" size='lg'>Sign in</MDBBtn>

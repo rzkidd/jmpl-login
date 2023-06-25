@@ -33,12 +33,12 @@ export const authOptions: AuthOptions = {
       credentials: {
         email: { label: 'email', type: 'text' },
         password: { label: 'password', type: 'password' },
-        // token: { label: 'token', type: 'text' }
+        token: { label: 'token', type: 'text' }
       },
       async authorize(credentials) {
-        // const response = await verifyRecaptcha(credentials?.token as string);
+        const response = await verifyRecaptcha(credentials?.token as string);
 
-        // if (response.success && response.score >= 0.7) {
+        if (response.success && response.score >= 0.7) {
 
           if (!credentials?.email || !credentials?.password) {
             throw new Error('Invalid credentials');
@@ -64,7 +64,7 @@ export const authOptions: AuthOptions = {
           }
 
           return user;
-        // }
+        }
       }
     })
     // ...add more providers here

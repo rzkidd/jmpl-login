@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       let {fullname, email, password, rePassword} = data
       
       // Recaptcha response
-      // const response = await verifyRecaptcha(token);
+      const response = await verifyRecaptcha(token);
   
       // Checking if the reponse sent by reCaptcha success or not and if the score is above 0.5
       // In ReCaptcha v3, a score sent which tells if the data sent from front end is from Human or from Bots. If score above 0.5 then it is human otherwise it is bot
@@ -40,9 +40,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       //     "hostname": string,         // the hostname of the site where the reCAPTCHA was solved
       //     "error-codes": [...]        // optional
       //   }
-      if ( true
-        // response.success && response.score >= 0.7
-        ) {
+      if ( response.success && response.score >= 0.7 ) {
         if (!fullname || !email || !password || !rePassword){
           return res.status(400).json({
             status: "Failed",

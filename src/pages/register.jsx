@@ -15,9 +15,10 @@ import { useReCaptcha } from 'next-recaptcha-v3';
 import { passwordStrength } from 'check-password-strength';
 import { Toast, ToastContainer } from 'react-bootstrap';
 import {useRouter} from 'next/router';
+import { signIn } from 'next-auth/react';
 
 function App() {
-  // const { executeRecaptcha } = useReCaptcha();
+  const { executeRecaptcha } = useReCaptcha();
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -34,12 +35,12 @@ function App() {
     async (e) => {
       e.preventDefault();
 
-      // if (passwordStrengthLabel == 'Too weak') {
-      //   alert('Your password is too weak. Still proceed?')
-      // }
+      if (passwordStrengthLabel == 'Too weak') {
+        alert('Your password is too weak. Still proceed?')
+      }
 
       // Generate ReCaptcha token
-      // const token = await executeRecaptcha("register");
+      const token = await executeRecaptcha("register");
       // console.log(token)
 
       fetch(baseUrl + '/api/register', {
@@ -55,12 +56,12 @@ function App() {
             password: password,
             rePassword: rePassword
           },
-          // token: token,
+          token: token,
         }),
       })
       .then((response) => response.json())
       .then((response) => {
-        // console.log(response)
+        console.log(response)
         setResponseStatus(response.status)
         setMessage(response.message)
         setShow(true);
@@ -69,7 +70,7 @@ function App() {
             console.log(responseStatus)
             router.push('/login')
           }
-        }, 3000)
+        }, 1500)
         }
       )
     },
@@ -151,7 +152,7 @@ function App() {
               <p className="text-center fw-bold mx-3 mb-0">OR</p>
             </div>
 
-            <MDBBtn className="mb-4 w-100" size="lg" style={{backgroundColor: '#3b5998'}}>
+            <MDBBtn className="mb-4 w-100" size="lg" style={{backgroundColor: '#3b5998'}} onClick={(e) => {e.preventDefault(); signIn('google', { callbackUrl: 'http://localhost:3000' })}}>
               <MDBIcon fab icon="google" className="mx-2"/>
               Continue with Google
             </MDBBtn>
