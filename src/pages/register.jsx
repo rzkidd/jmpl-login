@@ -29,7 +29,6 @@ function App() {
   const [responseStatus, setResponseStatus] = useState('')
   const router = useRouter()
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-  console.log(baseUrl)
 
   const handleSubmit = useCallback(
     async (e) => {
@@ -61,12 +60,12 @@ function App() {
       })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response)
+        // console.log(response)
         setResponseStatus(response.status)
         setMessage(response.message)
         setShow(true);
         setTimeout(() => {
-          if (responseStatus == 'Success') {
+          if (response.status == 'Success') {
             console.log(responseStatus)
             router.push('/login')
           }
@@ -145,7 +144,7 @@ function App() {
             </>
             )}
             <MDBInput wrapperClass='mb-4' label='Retype Password' id='rePassword' type='password' size="lg" value={rePassword} onChange={(e) => handleChange(e)} required/>
-            <MDBBtn className="mb-4 w-100" size='lg'>Sign up</MDBBtn>
+            <MDBBtn className="mb-4 w-100" size='lg' type='submit'>Sign up</MDBBtn>
           </form>
 
             <div className="divider d-flex align-items-center my-4">
