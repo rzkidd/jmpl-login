@@ -132,10 +132,10 @@ function App() {
             <p className="text-center fw-bold mx-3 mb-0">OR</p>
           </div>
 
-          <MDBBtn className="mb-4 w-100 google-login" size="lg" style={{backgroundColor: '#3b5998'}} onClick={(e) => {e.preventDefault(); signIn('google', { callbackUrl: 'http://localhost:3000' })}}>
+          {/* <MDBBtn className="mb-4 w-100 google-login" size="lg" style={{backgroundColor: '#3b5998'}} onClick={(e) => {e.preventDefault(); signIn('google', { callbackUrl: 'http://localhost:3000' })}}>
             <MDBIcon fab icon="google" className="mx-2"/>
             Continue with Google
-          </MDBBtn>
+          </MDBBtn> */}
 
         </MDBCol>
 
